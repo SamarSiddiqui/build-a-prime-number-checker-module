@@ -1,0 +1,24 @@
+{
+  "name": "build-a-prime-number-checker-module",
+  "version": "1.0.0",
+  "description": "the build-a-prime-number-checker-module",
+  "keywords": [
+    "prime",
+    "numbers"
+  ],
+  "homepage": "https://github.com/SamarSiddiqui/build-a-prime-number-checker-module#readme",
+  "bugs": {
+    "url": "https://github.com/SamarSiddiqui/build-a-prime-number-checker-module/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamarSiddiqui/build-a-prime-number-checker-module.git"
+  },
+  "license": "MIT",
+  "author": "Samar",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
