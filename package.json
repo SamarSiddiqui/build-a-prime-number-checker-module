@@ -1,15 +1,8 @@
 {
-  "name": "build-a-personal-profile-app",
+  "name": "build-a-data-sanitizer",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "description": "data sanitizer",
+  "license": "BSD-3-Clause",
   "dependencies": {
     "express": "^5.2.1"
   }
