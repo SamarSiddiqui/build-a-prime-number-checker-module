@@ -1,9 +1,18 @@
 {
-  "name": "build-a-data-sanitizer",
-  "version": "1.0.0",
-  "description": "data sanitizer",
-  "license": "BSD-3-Clause",
+  "name": "build-a-chat-app",
+  "version": "0.0.1",
+  "description": "freeCodeCamp Certification Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
-    "express": "^5.2.1"
-  }
+    "ws": "^8.21.3"
+  },
+  "keywords": [
+    "node",
+    "freecodecamp"
+  ],
+  "license": "MIT",
+  "type": "module"
 }
