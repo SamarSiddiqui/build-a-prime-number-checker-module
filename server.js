@@ -1,52 +1,27 @@
-import express from "express";
-import cors from "cors";
-
+const express = require("express")
 const app = express();
-
-app.use(cors({ optionsSuccessStatus: 200 }));
-
-app.use(express.static("public"));
+const port = 3000;
 
 app.get("/", (_req, res) => {
-  res.sendFile(__dirname + "/views/index.html");
+  res.send("Welcome to Camper Bot's homepage!");
 });
 
-// Do not change code above this line
-// Route for empty date parameter: /api or /api/
-app.get("/api", (req, res) => {
-  const now = new Date();
+app.get("/hobbies", (_req, res) => {
+  res.send("I cycle, go boating, and play guitar.");
+});
+
+app.get("/skills", (_req, res) => {
+  res.send("JavaScript, Node.js, and Express.js!");
+});
+
+app.get("/api/profile", (_req, res) => {
   res.json({
-    unix: now.getTime(),
-    utc: now.toUTCString()
+    name: "Camper Bot",
+    hobbies: ["cycling", "boating", "guitar"],
+    skills: ["JavaScript", "Node.js", "Express.js"]
   });
 });
 
-// Route with date parameter: /api/:date
-app.get("/api/:date", (req, res) => {
-  const dateParam = req.params.date;
-  let date;
-
-  // Check if the parameter consists only of digits (Unix timestamp)
-  if (/^\d+$/.test(dateParam)) {
-    date = new Date(parseInt(dateParam, 10));
-  } else {
-    date = new Date(dateParam);
-  }
-
-  // Handle invalid dates
-  if (isNaN(date.getTime())) {
-    return res.json({ error: "Invalid Date" });
-  }
-
-  // Handle valid dates
-  res.json({
-    unix: date.getTime(),
-    utc: date.toUTCString()
-  });
-});
-// Do not change code below this line
-
-const PORT = 8000;
-const listener = app.listen(PORT, function () {
-  console.log("Your app is listening on port " + listener.address().port);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
