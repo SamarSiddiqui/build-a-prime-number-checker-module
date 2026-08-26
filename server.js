@@ -1,27 +1,29 @@
-const express = require("express")
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+import { inputCleaner, inputValidator } from "./middleware.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
-const port = 3000;
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get("/", (_req, res) => {
-  res.send("Welcome to Camper Bot's homepage!");
+  res.redirect("/form");
 });
 
-app.get("/hobbies", (_req, res) => {
-  res.send("I cycle, go boating, and play guitar.");
-});
+app.use("/form", express.static(path.join(__dirname, "public")));
 
-app.get("/skills", (_req, res) => {
-  res.send("JavaScript, Node.js, and Express.js!");
-});
-
-app.get("/api/profile", (_req, res) => {
+app.post("/submit", inputCleaner, inputValidator, (req, res) => {
   res.json({
-    name: "Camper Bot",
-    hobbies: ["cycling", "boating", "guitar"],
-    skills: ["JavaScript", "Node.js", "Express.js"]
+    username: req.body.username,
+    comment: req.body.comment
   });
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
 });
